@@ -397,7 +397,7 @@ nnoremap <Leader>rwc :call Replace(1, 1, input('Replace '.expand('<cword>').' wi
 
 " 模板补全
 " UltiSnips 的 tab 键与 YCM 冲突，重新设定
-"let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/mysnippets']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/mysnippets']
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
