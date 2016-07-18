@@ -17,9 +17,8 @@ filetype plugin on
 " vim 自身（非插件）快捷键
 
 " 定义快捷键到行首和行尾
-nmap LB 0
-nmap LE $
-
+"nmap LB 0
+"nmap LE $
 " 设置快捷键将选中文本块复制至系统剪贴板
 vnoremap <Leader>y "+y
 " 设置快捷键将系统剪贴板内容粘贴至vim
@@ -52,7 +51,7 @@ nmap <Leader>M %
 " <<
 
 " 让配置变更立即生效
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " >>
 " 其他
@@ -177,8 +176,8 @@ set hlsearch
 "set guifont=YaHei\ Consolas\ Hybrid\ 12
 "set guifont=Consolas:h14
 set guifont=Courier\ New:h14
-set guifontwide=Microsoft\ Yahei\ Mono:h14
-"set guifontwide=STHeiti:h14
+"set guifontwide=Microsoft\ Yahei\ Mono:h14
+set guifontwide=STHeiti:h14
 
 " 禁止折行
 set nowrap
@@ -204,14 +203,16 @@ syntax on
 " 自适应不同语言的智能缩进
 filetype indent on
 
-" 将制表符扩展为空格
-set expandtab
 " 设置编辑时制表符占用空格数
 set tabstop=4
 " 设置格式化时制表符占用空格数
 set shiftwidth=4
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
+set ts=4 sw=4 et
+" 将制表符扩展为空格
+set expandtab
+autocmd FileType c,cpp,go set shiftwidth=4 | set expandtab | ret
 
 " 缩进可视化插件 Indent Guides
 " 随 vim 自启动
@@ -221,7 +222,7 @@ let g:indent_guides_start_level=2
 " 色块宽度
 let g:indent_guides_guide_size=1
 " 快捷键 i 开/关缩进可视化
-nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+"nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 " <<
 
@@ -530,6 +531,20 @@ let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
 nnoremap <Leader>ud :GundoToggle<CR>
 
 " Golang 设置
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-vet)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>if <Plug>(go-info)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
 let g:go_highlight_functions = 1                                                                                    
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
