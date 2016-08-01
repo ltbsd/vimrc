@@ -120,6 +120,8 @@ set background=dark
 colorscheme solarized
 "colorscheme molokai
 "colorscheme phd
+"colorscheme darkblue
+"colorscheme ron
 
 " >>
 " 营造专注气氛
@@ -165,19 +167,21 @@ set cursorline
 "set cursorcolumn
 
 " 高亮显示搜索结果
-set hlsearch
+"set hlsearch
 
 " <<
 
 " >>
 " 其他美化
  
-" 设置 gvim 显示字体
-"set guifont=YaHei\ Consolas\ Hybrid\ 12
+" 设置 gvim 显示字体。字体大小Mac用：h18，Linux用\ 18
+"set guifont=Microsoft\ Yahei\ Mono:h16
+set guifont=Microsoft\ Yahei\ Mono\ 18
 "set guifont=Consolas:h14
-set guifont=Courier\ New:h14
-"set guifontwide=Microsoft\ Yahei\ Mono:h14
-set guifontwide=STHeiti:h14
+"set guifont=Monospace\ 16
+"set guifontwide=Microsoft\ Yahei\ Mono:h16
+set guifontwide=Microsoft\ Yahei\ Mono\ 18
+"set guifontwide=STHeiti:h14
 
 " 禁止折行
 set nowrap
@@ -483,6 +487,7 @@ let NERDTreeAutoDeleteBuffer=1
  
 " 显示/隐藏 MiniBufExplorer 窗口
 map <Leader>bl :MBEToggle<cr>
+map <Leader>bd :MBEbd<cr>
 
 " buffer 切换快捷键
 map <C-Tab> :MBEbn<cr>
@@ -532,7 +537,7 @@ nnoremap <Leader>ud :GundoToggle<CR>
 
 " Golang 设置
 au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>bu <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
@@ -551,7 +556,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:go_fmt_autosave = 1
+"let g:go_fmt_autosave = 1
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
